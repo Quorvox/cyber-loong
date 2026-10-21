@@ -2,6 +2,8 @@
 
 > Esports tournament website with a live bracket, streams and an admin panel. Express API, works as a static site too. EN / 中文.
 
+**▶ Демо: https://quorvox.github.io/cyber-loong/** (сайт в демо-режиме, без API и админки)
+
 ![screenshot](docs/screenshot.png)
 
 Лендинг любительского CS2-турнира в Чунцине: команды, групповой этап, плей-офф сетка, трансляции (свой плеер / YouTube / Twitch), отели и правила. Всё содержимое правится из админки без кода.
