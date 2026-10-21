@@ -1,0 +1,13 @@
+{
+  "name": "cyber-loong-championship",
+  "version": "1.0.0",
+  "description": "Cyber Loong Championship - tournament site + admin panel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2"
+  }
+}

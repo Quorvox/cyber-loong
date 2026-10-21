@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Админка — Cyber Loong</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="nav" style="display:flex;align-items:center;gap:12px;padding:14px 0">
+    <div class="logo">🐉 <b>LOONG</b> <span>ADMIN</span></div>
+    <button id="logoutBtn" class="b-del hidden">Выйти</button>
+  </div>
+
+  <div id="setupBox" class="login-card hidden">
+    <h3>🔑 Пароль админа</h3>
+    <p class="desc">Первый запуск. Придумай пароль для панели.</p>
+    <input id="setupPass" type="password" placeholder="Новый пароль (мин. 8)">
+    <button class="b-add" style="width:100%" onclick="setup()">Установить</button>
+  </div>
+
+  <div id="loginBox" class="login-card hidden">
+    <h3>👋 Вход</h3>
+    <input id="loginPass" type="password" placeholder="Пароль админа" onkeydown="if(event.key==='Enter')login()">
+    <button class="b-add" style="width:100%" onclick="login()">Войти</button>
+  </div>
+
+  <div id="mainBox" class="hidden">
+    <div class="tabs">
+      <button class="tab active" data-t="settings">⚙ Настройки</button>
+      <button class="tab" data-t="teams">🐉 Команды</button>
+      <button class="tab" data-t="matches">⚔ Матчи</button>
+      <button class="tab" data-t="streams">📺 Трансляции</button>
+    </div>
+    <div id="tabBody"></div>
+  </div>
+</div>
+<script src="/admin.js"></script>
+</body>
+</html>

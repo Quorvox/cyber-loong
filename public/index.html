@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cyber Loong Championship — Chongqing</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0c; --bg2:#101014; --panel:rgba(22,22,27,.82); --panel-solid:#16161b;
+  --red:#d22f27; --red2:#ff5347; --gold:#d9a441; --gold2:#f2d98d;
+  --text:#f5f3ed; --muted:#a7a199; --line:rgba(255,255,255,.09);
+  --head:'Anton','Arial Narrow',Impact,sans-serif;
+  --hero-veil:linear-gradient(180deg,rgba(8,6,8,.55) 0%,rgba(8,6,8,.72) 55%,var(--bg) 100%);
+}
+[data-theme="light"]{
+  --bg:#f5f2ea; --bg2:#ffffff; --panel:rgba(255,255,255,.88); --panel-solid:#ffffff;
+  --red:#b02329; --red2:#d92f26; --gold:#8a6a14; --gold2:#6e5410;
+  --text:#1b1813; --muted:#6e675b; --line:rgba(0,0,0,.1);
+  --hero-veil:linear-gradient(180deg,rgba(245,242,234,.55) 0%,rgba(245,242,234,.78) 55%,var(--bg) 100%);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,"Segoe UI",system-ui,"PingFang SC","Microsoft YaHei",sans-serif;transition:background .25s,color .25s;overflow-x:hidden}
+a{color:var(--gold)}
+/* top nav */
+.topnav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);
+  background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
+.topnav-in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:8px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--head);font-size:20px;letter-spacing:2px;white-space:nowrap}
+.logo i{font-size:28px;color:var(--red2)}
+.logo em{font-style:normal;color:var(--gold)}
+.topnav nav{display:flex;gap:2px;margin-left:auto}
+.topnav nav button{background:none;border:0;color:var(--text);font-family:var(--head);font-size:14px;letter-spacing:2px;
+  padding:10px 14px;border-radius:8px;cursor:pointer;position:relative}
+.topnav nav button::after{content:"";position:absolute;left:14px;right:14px;bottom:5px;height:2px;background:var(--red2);transform:scaleX(0);transition:transform .2s}
+.topnav nav button:hover::after,.topnav nav button.active::after{transform:scaleX(1)}
+.topnav nav button.active{color:var(--gold)}
+.icon-btn{background:transparent;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:8px 11px;cursor:pointer;font-size:13px;display:inline-flex;align-items:center;gap:6px;font-family:Inter,sans-serif;white-space:nowrap}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold)}
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:#0a0708 url('https://commons.wikimedia.org/wiki/Special:FilePath/2019%20OWL%20Grand%20Finals%20stage%20-%204.jpg?width=1280') center/cover}
+.hero-veil{position:absolute;inset:0;background:var(--hero-veil)}
+.hero-veil::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(700px 380px at 78% 30%,rgba(210,47,39,.28),transparent 65%),
+             radial-gradient(600px 340px at 12% 75%,rgba(217,164,65,.16),transparent 60%)}
+#embers{position:absolute;inset:0;z-index:1}
+.dragon-hero{position:absolute;right:-30px;bottom:6%;height:min(72vh,600px);z-index:1;opacity:.9;filter:drop-shadow(0 0 60px rgba(255,90,50,.35));animation:floaty 8s ease-in-out infinite;pointer-events:none}
+@keyframes floaty{50%{transform:translateY(-18px)}}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:1180px;margin:0 auto;padding:130px 20px 40px}
+.kicker{display:inline-flex;align-items:center;gap:9px;color:var(--gold2);letter-spacing:4px;font-size:13px;font-weight:700;
+  border:1px solid color-mix(in srgb,var(--gold) 55%,transparent);border-radius:99px;padding:8px 18px;background:rgba(0,0,0,.35)}
+[data-theme="light"] .kicker{background:rgba(255,255,255,.6)}
+h1.hero-title{font-family:var(--head);font-size:clamp(58px,11vw,150px);line-height:.92;margin:20px 0 6px;letter-spacing:3px}
+h1 .stroke{color:transparent;-webkit-text-stroke:2.5px var(--gold)}
+.hero-cn{font-size:clamp(18px,3vw,30px);letter-spacing:16px;color:var(--red2);font-weight:700;margin-bottom:14px}
+.hero-sub{color:var(--muted);font-size:16.5px;max-width:620px;line-height:1.65}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 26px}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(0,0,0,.4);border-radius:99px;padding:9px 17px;font-size:14px}
+[data-theme="light"] .pill{background:rgba(255,255,255,.65)}
+.pill i{color:var(--gold)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,var(--red2),var(--red));color:#fff;border:0;border-radius:12px;padding:16px 32px;font-size:15px;font-weight:800;letter-spacing:1.5px;cursor:pointer;text-decoration:none;box-shadow:0 10px 34px rgba(255,70,50,.35);font-family:Inter,sans-serif}
+.btn.ghost{background:rgba(0,0,0,.35);border:1px solid var(--gold);color:var(--gold);box-shadow:none}
+[data-theme="light"] .btn.ghost{background:rgba(255,255,255,.5)}
+.stats-band{display:flex;max-width:1180px;margin:0 auto;padding:0 20px 46px;gap:0;position:relative;z-index:2;flex-wrap:wrap}
+.stat{flex:1;min-width:160px;background:var(--panel);backdrop-filter:blur(10px);border:1px solid var(--line);border-left:4px solid var(--red2);padding:20px 22px}
+.stat:first-child{border-radius:14px 0 0 14px}.stat:last-child{border-radius:0 14px 14px 0}
+.stat b{font-family:var(--head);font-size:clamp(26px,3.4vw,40px);letter-spacing:1px;display:block;color:var(--gold2)}
+[data-theme="light"] .stat b{color:#8a6a14}
+.stat span{font-size:12px;letter-spacing:2.5px;color:var(--muted)}
+.scroll-cue{text-align:center;padding-bottom:26px;color:var(--muted);font-size:12px;letter-spacing:3px;position:relative;z-index:2}
+.scroll-cue i{display:block;font-size:22px;color:var(--gold);animation:bob 1.8s infinite}
+@keyframes bob{50%{transform:translateY(8px)}}
+/* partners marquee */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:color-mix(in srgb,var(--bg) 70%,#000);padding:18px 0}
+.mq-track{display:flex;gap:64px;width:max-content;animation:mq 26s linear infinite}
+.mq-track span{font-family:var(--head);font-size:22px;letter-spacing:3px;color:var(--muted);display:flex;align-items:center;gap:12px;white-space:nowrap}
+.mq-track span i{color:var(--gold);font-size:24px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* sections */
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+section{padding:64px 0 8px}
+.kick{color:var(--red2);font-weight:800;letter-spacing:4px;font-size:13px;display:flex;align-items:center;gap:9px}
+h2.sec{font-family:var(--head);font-size:clamp(34px,5vw,58px);margin:8px 0;letter-spacing:2px;line-height:1}
+h2.sec .cn{font-family:Inter;font-size:.42em;letter-spacing:10px;color:var(--gold);margin-left:12px}
+.desc{color:var(--muted);margin:0 0 24px;max-width:760px;line-height:1.7;font-size:15.5px}
+.page{display:none}.page.active{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+/* gallery */
+.gallery{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px;margin:20px 0}
+.gmain{grid-row:span 2;min-height:340px}
+.photo{border-radius:14px;overflow:hidden;border:1px solid var(--line);position:relative;min-height:220px;
+  background:linear-gradient(135deg,#241014,#100a08 55%,#33230e)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;transition:transform .5s}
+.photo:hover img{transform:scale(1.05)}
+.photo .cap{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;font-size:13px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.82));color:#fff;z-index:2}
+.photo .credit{position:absolute;top:8px;right:10px;font-size:10px;color:rgba(255,255,255,.65);z-index:2}
+.pre{white-space:pre-wrap;line-height:1.8;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;font-size:15px;backdrop-filter:blur(8px)}
+/* prizes */
+.prizes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:20px 0}
+.prize{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px 20px;text-align:center;position:relative;overflow:hidden;backdrop-filter:blur(8px)}
+.prize::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--line)}
+.prize.first{border-color:color-mix(in srgb,var(--gold) 60%,transparent);box-shadow:0 0 44px rgba(217,164,65,.18)}
+.prize.first::before{background:linear-gradient(90deg,var(--red2),var(--gold))}
+.prize .place{font-family:var(--head);font-size:16px;letter-spacing:3px;color:var(--muted)}
+.prize .amount{font-family:var(--head);font-size:38px;color:var(--gold);margin:12px 0 2px}
+[data-theme="light"] .prize .amount{color:#8a6a14}
+.prize .usd{font-size:13px;color:var(--muted)}
+.prize .bonus{font-size:13.5px;color:var(--red2);margin-top:10px;font-weight:600}
+/* teams */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:14px}
+.team{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .18s,box-shadow .18s;backdrop-filter:blur(8px)}
+.team:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(210,47,39,.22);border-color:color-mix(in srgb,var(--gold) 55%,transparent)}
+.team .banner{height:64px;background:linear-gradient(100deg,var(--red) 0%,#7a1a12 45%,#3a2410 100%);position:relative;overflow:hidden}
+.team .banner::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent 0 14px,rgba(255,255,255,.07) 14px 16px)}
+.team .tb{padding:0 18px 18px;margin-top:-26px}
+.team .logo-big{font-size:34px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:var(--bg2);border:2px solid var(--gold);border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.logo-big img{width:100%;height:100%;object-fit:cover}
+.team b.name{font-size:18px;display:block;margin-top:10px}
+.team .tag{color:var(--gold);font-size:13px;font-weight:700;letter-spacing:1px}
+.team .wl{display:flex;gap:8px;margin-top:8px;font-size:13px}
+.wchip{background:rgba(76,175,109,.14);color:#4caf6d;border-radius:7px;padding:2px 10px;font-weight:800}
+.lchip{background:rgba(255,83,71,.12);color:#ff7b6e;border-radius:7px;padding:2px 10px;font-weight:800}
+.gchip{background:var(--bg2);border:1px solid var(--line);color:var(--muted);border-radius:7px;padding:2px 10px}
+.team .country{font-size:13px;color:var(--muted);margin-top:8px}
+.team .tdesc{font-size:13.5px;margin-top:8px;line-height:1.6;opacity:.92}
+.team ul{margin:10px 0 0;padding:12px 0 0;list-style:none;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+.team ul li{padding:3px 0;display:flex;align-items:center;gap:8px}
+.team ul li i{color:var(--gold)}
+/* matches */
+.stage-head{display:flex;align-items:center;gap:12px;margin:30px 0 4px}
+.stage-head h3{font-family:var(--head);font-size:24px;letter-spacing:2px;margin:0}
+.bo{font-size:12px;color:#fff;background:linear-gradient(180deg,var(--red2),var(--red));border-radius:7px;padding:3px 10px;font-weight:800;letter-spacing:1px}
+.match{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:12px 0;display:grid;grid-template-columns:1fr auto 1fr;gap:8px 16px;align-items:center;backdrop-filter:blur(8px)}
+.match.live{border-color:var(--red2);box-shadow:0 0 30px rgba(255,70,50,.25)}
+.m-side{display:flex;align-items:center;gap:12px;font-size:17px;min-width:0}
+.m-side.right{justify-content:flex-end;text-align:right}
+.m-logo{font-size:30px;flex-shrink:0}
+.m-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.m-name small{display:block;color:var(--gold);font-size:12px;font-weight:700}
+.m-name.win{font-weight:800}
+.m-name.win::after{content:" ◄";color:#4caf6d}
+.m-side.right .m-name.win::after{content:""}
+.m-side.right .m-name.win::before{content:"► ";color:#4caf6d}
+.m-mid{text-align:center}
+.m-score{font-family:var(--head);font-size:30px;color:var(--gold2);white-space:nowrap}
+[data-theme="light"] .m-score{color:#8a6a14}
+.m-meta{grid-column:1/-1;display:flex;gap:12px;align-items:center;font-size:13px;color:var(--muted);flex-wrap:wrap;border-top:1px solid var(--line);padding-top:10px}
+.badge{font-size:12px;padding:3px 11px;border-radius:99px;font-weight:800;display:inline-flex;align-items:center;gap:6px}
+.b-live{background:rgba(255,70,50,.16);color:#ff7b6e;border:1px solid var(--red2);animation:pulse 1.6s infinite}
+.b-fin{background:rgba(76,175,109,.13);color:#4caf6d;border:1px solid #2c5a37}
+.b-sched{background:rgba(217,164,65,.13);color:var(--gold);border:1px solid #6b5322}
+@keyframes pulse{50%{opacity:.5}}
+.watch{color:var(--gold)}
+/* streams */
+.stabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.stab{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:11px;padding:11px 20px;cursor:pointer;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;font-family:inherit}
+.stab.active{background:linear-gradient(180deg,var(--red2),var(--red));color:#fff;border-color:transparent}
+.player{background:#000;border:1px solid var(--line);border-radius:14px;overflow:hidden;aspect-ratio:16/9;position:relative}
+.player iframe,.player video{width:100%;height:100%;border:0}
+.player .empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#b9a488;text-align:center;padding:20px;line-height:1.7}
+/* info */
+.info-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin:20px 0}
+.info-photo{border-radius:14px;overflow:hidden;border:1px solid var(--line);min-height:280px;position:relative;
+  background:linear-gradient(135deg,#1c1214,#0e0a08 55%,#2c2008)}
+.info-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.info-photo .cap{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff;font-size:14px;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;backdrop-filter:blur(8px)}
+.card h3{margin:0 0 8px;display:flex;align-items:center;gap:9px;font-size:16px}
+.card h3 i{color:var(--gold);font-size:20px}
+.card p{margin:6px 0;color:var(--muted);font-size:14px;line-height:1.7;white-space:pre-wrap}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 20px;color:var(--muted);font-size:12.5px;text-align:center;line-height:1.9}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.dot.live{background:#4caf6d;box-shadow:0 0 8px #4caf6d}
+.dot.demo{background:var(--gold)}
+.bcols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:stretch}
+.bcol{background:color-mix(in srgb,var(--panel) 55%,transparent);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:12px;justify-content:center}
+.bcol-h{font-family:var(--head);font-size:18px;letter-spacing:2px;color:var(--gold);text-align:center;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.bcol-h .cn{font-family:Inter;font-size:12px;letter-spacing:4px;margin-left:6px}
+.bcard{background:var(--panel-solid);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.bcard.live{border-color:var(--red2);box-shadow:0 0 22px rgba(255,70,50,.25)}
+.brow{display:flex;align-items:center;gap:9px;padding:5px 0;font-size:14.5px}
+.brow .blogo{font-size:22px;width:30px;text-align:center;flex-shrink:0}
+.blogo img{width:26px;height:26px;border-radius:7px;object-fit:cover}
+.brow .bname{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brow .bname small{color:var(--gold);font-size:11px;margin-left:5px}
+.brow .bscore{font-family:var(--head);font-size:19px}
+.brow.winside .bname{font-weight:800}
+.brow.winside .bscore{color:#4caf6d}
+.bslot{color:var(--muted);border:1px dashed var(--gold);border-radius:8px;padding:3px 10px;font-size:12.5px;letter-spacing:1px;white-space:nowrap}
+.bmeta{display:flex;gap:8px;align-items:center;margin-top:8px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.team .chev{color:var(--gold);transition:transform .2s;flex-shrink:0;font-size:20px}
+.team.open .chev{transform:rotate(180deg)}
+.team .roster{display:none}
+.team.open .roster{display:block;animation:fade .25s ease}
+@media(hover:hover){.team:hover .roster{display:block}}
+.hidden{display:none!important}
+@media(max-width:900px){
+.bcols{grid-template-columns:1fr}}
+@media(max-width:900px){
+  .topnav nav{display:none}
+  .gallery{grid-template-columns:1fr}
+  .gmain{grid-row:auto;min-height:240px}
+  .dragon-hero{height:40vh;opacity:.4;right:-90px}
+  .info-grid{grid-template-columns:1fr}
+  .match{grid-template-columns:1fr;gap:6px}
+  .m-side.right{justify-content:flex-start;text-align:left}
+  .m-mid{text-align:left}
+}
+</style>
+</head>
+<body>
+<!-- dragon art -->
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="goldBody" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#8a5a12"/><stop offset=".45" stop-color="#f2d98d"/><stop offset=".6" stop-color="#d9a441"/><stop offset="1" stop-color="#7a3a10"/></linearGradient>
+<linearGradient id="redGlow" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#ff6a3e"/><stop offset="1" stop-color="#7a0d0d"/></linearGradient>
+<linearGradient id="fireG" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#fff3c4"/><stop offset=".5" stop-color="#ff9a3e"/><stop offset="1" stop-color="#c0272d"/></linearGradient>
+<symbol id="loong" viewBox="0 0 400 620">
+<path d="M70 590 C 40 540, 90 520, 80 470 C 70 420, 140 430, 150 380" fill="none" stroke="url(#redGlow)" stroke-width="26" stroke-linecap="round" opacity=".85"/>
+<path d="M70 590 C 40 540, 90 520, 80 470 C 70 420, 140 430, 150 380" fill="none" stroke="url(#goldBody)" stroke-width="14" stroke-linecap="round"/>
+<path d="M150 380 C 170 320, 90 300, 110 240 C 130 180, 230 200, 250 140 C 262 105, 230 90, 245 55" fill="none" stroke="url(#redGlow)" stroke-width="40" stroke-linecap="round" opacity=".8"/>
+<path d="M150 380 C 170 320, 90 300, 110 240 C 130 180, 230 200, 250 140 C 262 105, 230 90, 245 55" fill="none" stroke="url(#goldBody)" stroke-width="24" stroke-linecap="round"/>
+<g stroke="#fff3c4" stroke-width="3" opacity=".8"><path d="M118 330 L 162 322"/><path d="M112 300 L 158 292"/><path d="M118 268 L 160 262"/><path d="M140 232 L 182 230"/><path d="M200 210 L 236 200"/><path d="M232 178 L 262 164"/></g>
+<g fill="#f2d98d"><path d="M96 300 L 78 288 L 92 276 Z"/><path d="M104 262 L 84 252 L 100 238 Z"/><path d="M150 210 L 136 194 L 154 186 Z"/><path d="M205 192 L 196 174 L 214 170 Z"/><path d="M238 150 L 232 130 L 250 130 Z"/></g>
+<g stroke="#f2d98d" stroke-width="3" fill="none" stroke-linecap="round"><path d="M285 60 C 330 55, 350 75, 372 70"/><path d="M282 78 C 320 85, 335 105, 360 102"/></g>
+<g stroke="#f2d98d" stroke-width="5" stroke-linecap="round"><path d="M250 40 L 228 8 M262 36 L 252 2"/></g>
+<path d="M238 28 L 292 38 L 300 66 L 262 84 L 232 70 L 226 44 Z" fill="url(#goldBody)" stroke="#7a0d0d" stroke-width="3"/>
+<circle cx="268" cy="52" r="7" fill="#fff"/><circle cx="270" cy="52" r="3.4" fill="#7a0d0d"/>
+<path d="M244 78 L 292 72 L 276 92 Z" fill="#5d0a08"/>
+<path d="M292 72 L 352 60 L 336 78 L 360 84 L 334 94 L 344 110 L 300 96 Z" fill="url(#fireG)" opacity=".95"/>
+<g stroke="#f2d98d" stroke-width="4" stroke-linecap="round"><path d="M120 350 L 96 372 M120 350 L 104 378 M120 350 L 88 362"/><path d="M200 250 L 178 268 M200 250 L 186 274 M200 250 L 170 258"/></g>
+<g stroke="#d9a441" stroke-width="4" fill="none" opacity=".55" stroke-linecap="round"><path d="M300 200 a26 26 0 1 1 26 26 a18 18 0 1 0 18 -18"/><path d="M60 180 a22 22 0 1 1 22 22 a15 15 0 1 0 15 -15"/><path d="M320 420 a24 24 0 1 1 24 24 a16 16 0 1 0 16 -16"/></g>
+<g fill="#d9a441" opacity=".6"><circle cx="90" cy="120" r="4"/><circle cx="330" cy="300" r="5"/><circle cx="120" cy="480" r="4"/><circle cx="300" cy="520" r="5"/></g>
+</symbol></defs></svg>
+
+<header class="topnav"><div class="topnav-in">
+  <div class="logo"><i class="ri-dragon-fill"></i><span>CYBER <em>LOONG</em></span></div>
+  <nav>
+    <button data-page="overview" class="active" data-i18n="nav_overview">Overview</button>
+    <button data-page="bracket" data-i18n="nav_bracket">Bracket</button>
+    <button data-page="info" data-i18n="nav_info">Info</button>
+    <button data-page="rules" data-i18n="nav_rules">Rules</button>
+  </nav>
+  <button class="icon-btn" id="langBtn"><i class="ri-translate-2"></i><span id="langLabel">中文</span></button>
+  <button class="icon-btn" id="themeBtn"><i class="ri-contrast-line"></i></button>
+</div></header>
+
+<!-- OVERVIEW -->
+<div class="page active" id="page-overview">
+  <div class="hero">
+    <div class="hero-bg"></div><div class="hero-veil"></div><canvas id="embers"></canvas>
+    <svg class="dragon-hero" viewBox="0 0 400 620"><use href="#loong"/></svg>
+    <div class="hero-inner">
+      <span class="kicker"><i class="ri-sword-fill"></i><span data-i18n="hero_kicker">SEASON 1 • CHONGQING • CS2</span></span>
+      <h1 class="hero-title">CYBER <span class="stroke">LOONG</span></h1>
+      <div class="hero-cn">赛博龙锦标赛</div>
+      <p class="hero-sub" id="tAbout"></p>
+      <div class="hero-meta">
+        <span class="pill"><i class="ri-calendar-event-line"></i><span id="tDates">—</span></span>
+        <span class="pill"><i class="ri-map-pin-line"></i><span id="tCity">—</span></span>
+        <span class="pill"><i class="ri-trophy-fill"></i><span id="tPrize">—</span></span>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="#broadcast"><i class="ri-live-line"></i><span data-i18n="watch">WATCH LIVE</span></a>
+        <button class="btn ghost" data-goto="bracket"><i class="ri-git-branch-line"></i><span data-i18n="cta_bracket">BRACKET</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="stats-band">
+    <div class="stat"><b id="stTeams">8</b><span data-i18n="stat_teams">TEAMS</span></div>
+    <div class="stat"><b>¥167,441</b><span data-i18n="stat_prize">PRIZE POOL</span></div>
+    <div class="stat"><b data-i18n="stat_n">CHONGQING</b><span data-i18n="stat_where">HOST CITY</span></div>
+  </div>
+  <div class="scroll-cue"><span data-i18n="scroll">SCROLL</span><i class="ri-arrow-down-line"></i></div>
+
+  <div class="marquee"><div class="mq-track" id="mqTrack">
+    <span><i class="ri-flashlight-fill"></i>LOONG ENERGY</span><span><i class="ri-computer-fill"></i>JADE SYSTEMS</span><span><i class="ri-hotel-fill"></i>HARBOR HOTELS</span><span><i class="ri-headphone-fill"></i>TIGER GEAR</span><span><i class="ri-tv-2-fill"></i>YANGTZE TV</span>
+    <span><i class="ri-flashlight-fill"></i>LOONG ENERGY</span><span><i class="ri-computer-fill"></i>JADE SYSTEMS</span><span><i class="ri-hotel-fill"></i>HARBOR HOTELS</span><span><i class="ri-headphone-fill"></i>TIGER GEAR</span><span><i class="ri-tv-2-fill"></i>YANGTZE TV</span>
+  </div></div>
+
+  <div class="wrap">
+    <section>
+      <div class="kick"><i class="ri-community-line"></i><span data-i18n="arena_kick">VENUE • 场馆</span></div>
+      <h2 class="sec"><span data-i18n="arena_title">THE ARENA</span></h2>
+      <p class="desc" id="venueLine"></p>
+      <div class="gallery">
+        <div class="photo gmain"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/IEM%20Katowice%202018%20stage%20%281%29.jpg?width=1280" alt="Esports stage" onerror="this.remove()"><div class="cap"><span data-i18n="arena_cap1">Main stage • 6,096 seats</span><div class="credit">Portal PcModpl, CC BY 3.0, via Wikimedia</div></div></div>
+        <div class="photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/ESL%20stage%20Gamescom%202019%20%2848605708741%29.jpg?width=800" alt="ESL stage" onerror="this.remove()"><div class="cap"><span data-i18n="arena_cap2">Pro stage of ESL level</span><div class="credit">dronepicr, via Wikimedia</div></div></div>
+        <div class="photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/All-Star%20eSports%20Arena%2C%20Taipei%20Game%20Show%2020190126a.jpg?width=800" alt="Asian arena" onerror="this.remove()"><div class="cap"><span data-i18n="arena_cap3">Asian arena atmosphere</span><div class="credit">Solomon203, via Wikimedia</div></div></div>
+      </div>
+      <div class="pre" id="arenaText"></div>
+    </section>
+    <section>
+      <div class="kick"><i class="ri-money-dollar-circle-line"></i><span data-i18n="prize_kick">MONEY • 奖金</span></div>
+      <h2 class="sec"><span data-i18n="prize_title">PRIZE FUND</span></h2>
+      <p class="desc" data-i18n="prize_desc">Paid in Chinese yuan (CNY).</p>
+      <div class="prizes">
+        <div class="prize first"><div class="place" data-i18n="place1">🥇 CHAMPION</div><div class="amount">¥80,371.80</div><div class="usd">≈ $12,000</div><div class="bonus"><i class="ri-headphone-line"></i> <span data-i18n="place1_bonus">+ brand-new headphones for the team</span></div></div>
+        <div class="prize"><div class="place" data-i18n="place2">🥈 RUNNER-UP</div><div class="amount">¥66,976.50</div><div class="usd">≈ $10,000</div></div>
+        <div class="prize"><div class="place" data-i18n="place3">🥉 3RD PLACE</div><div class="amount">¥20,092.95</div><div class="usd">≈ $3,000</div></div>
+      </div>
+    </section>
+    <section id="broadcast">
+      <div class="kick"><i class="ri-live-line"></i><span data-i18n="streams_kick">LIVE • 直播</span></div>
+      <h2 class="sec"><span data-i18n="streams_title">BROADCAST</span></h2>
+      <p class="desc" data-i18n="streams_desc">Our player, YouTube and Twitch.</p>
+      <div class="stabs">
+        <button class="stab active" data-s="own"><i class="ri-play-circle-fill"></i><span data-i18n="tab_own">Our stream</span></button>
+        <button class="stab" data-s="youtube"><i class="ri-youtube-fill"></i>YouTube</button>
+        <button class="stab" data-s="twitch"><i class="ri-twitch-fill"></i>Twitch</button>
+      </div>
+      <div class="player" id="player"></div>
+    </section>
+  </div>
+</div>
+
+<!-- BRACKET -->
+<div class="page" id="page-bracket">
+  <div class="wrap">
+    <section>
+      <div class="kick"><i class="ri-team-line"></i><span data-i18n="teams_kick">LINEUP • 战队</span></div>
+      <h2 class="sec"><span data-i18n="teams_title">TEAMS</span></h2>
+      <p class="desc" id="teamsCount"></p>
+      <div class="grid" id="teamGrid"></div>
+    </section>
+    <section>
+      <div class="kick"><i class="ri-git-branch-line"></i><span data-i18n="bracket_kick">PLAYOFFS • 对阵</span></div>
+      <h2 class="sec"><span data-i18n="bracket_title">BRACKET</span></h2>
+      <p class="desc" data-i18n="bracket_desc">Group BO1 • Quarterfinal BO3 • Semifinal BO3 (first to 2) • Grand Final BO5.</p>
+      <div id="liveBox"></div>
+      <div id="matchList"></div>
+    </section>
+  </div>
+</div>
+
+<!-- INFO -->
+<div class="page" id="page-info">
+  <div class="wrap">
+    <section>
+      <div class="kick"><i class="ri-hotel-line"></i><span data-i18n="info_kick">STAY • 酒店</span></div>
+      <h2 class="sec"><span data-i18n="info_title">HOTELS & VENUE</span></h2>
+      <p class="desc" data-i18n="info_desc">Where to stay and how to get to the arena.</p>
+      <div class="info-grid">
+        <div class="info-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chongqing%20Night%20Yuzhong.jpg?width=1280" alt="Chongqing at night" onerror="this.remove()"><div class="cap"><span id="infoVenueCap">Chongqing at night</span><div class="credit" style="font-size:10px;color:rgba(255,255,255,.65)">Jonipoon, via Wikimedia</div></div></div>
+        <div class="cards" style="grid-template-columns:1fr">
+          <div class="card"><h3><i class="ri-map-pin-2-fill"></i><span data-i18n="info_venue">Venue</span></h3><p id="infoVenue"></p></div>
+          <div class="card"><h3><i class="ri-train-line"></i><span data-i18n="info_transport">Transport</span></h3><p data-i18n="info_transport_text">High-speed train to Chongqing North, then metro + official shuttle to Zhongxian. Shuttle schedule in the team chat.</p></div>
+          <div class="card"><h3><i class="ri-customer-service-2-line"></i><span data-i18n="info_contact">Contacts</span></h3><p data-i18n="info_contact_text">Organizers: Cyber Loong crew. Team check-in at the arena reception, 2 hours before the match.</p></div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="kick"><i class="ri-hotel-bed-line"></i><span data-i18n="hotels_kick">SLEEP • 住宿</span></div>
+      <h2 class="sec"><span data-i18n="hotels_title">PARTNER HOTELS</span></h2>
+      <div class="pre" id="hotelsText"></div>
+    </section>
+  </div>
+</div>
+
+<!-- RULES -->
+<div class="page" id="page-rules">
+  <div class="wrap">
+    <section>
+      <div class="kick"><i class="ri-file-list-3-line"></i><span data-i18n="rules_kick">FAIR PLAY • 规则</span></div>
+      <h2 class="sec"><span data-i18n="rules_title">RULES & BANS</span></h2>
+      <p class="desc" data-i18n="rules_desc">Groups BO1, quarterfinals BO3, semifinals BO3 (first to 2 wins), grand final BO5. Violations = disqualification.</p>
+      <div class="pre" id="rulesText"></div>
+    </section>
+  </div>
+</div>
+
+<footer>
+  🐉 Cyber Loong Championship • Chongqing, China • <span data-i18n="footer">Made for CS2 fans</span><br>
+  <span style="opacity:.75">Stage photos: Grant Guarino (CC BY), Portal PcModpl (CC BY 3.0), dronepicr, Solomon203, Jonipoon — via Wikimedia Commons.</span><br>
+  <span class="dot demo" id="connDot"></span><span id="connText">…</span>
+</footer>
+
+<script>
+/* Static hosting? Point to the API host, e.g. 'http://IP:4000'. Empty = same origin. */
+const API_BASE = '';
+const api = p => (API_BASE || '') + p;
+
+const T = {
+en:{nav_overview:'Overview',nav_bracket:'Bracket',nav_info:'Info',nav_rules:'Rules',hero_kicker:'SEASON 1 • CHONGQING • CS2',watch:'WATCH LIVE',cta_bracket:'BRACKET',stat_teams:'TEAMS',stat_prize:'PRIZE POOL',stat_n:'CHONGQING',stat_where:'HOST CITY',scroll:'SCROLL',arena_kick:'VENUE • 场馆',arena_title:'',arena_cap1:'Main stage • 6,096 seats',arena_cap2:'Pro stage of ESL level',arena_cap3:'Asian arena atmosphere',prize_kick:'MONEY • 奖金',prize_title:'',place1:'🥇 CHAMPION',place1_bonus:'+ brand-new headphones for the team',place2:'🥈 RUNNER-UP',place3:'🥉 3RD PLACE',prize_desc:'Paid in Chinese yuan (CNY).',streams_kick:'LIVE • 直播',streams_title:'',tab_own:'Our stream',streams_desc:'Our player, YouTube and Twitch.',teams_kick:'LINEUP • 战队',teams_title:'',teams_n:'teams',teams_hint:'Click a team card to see the roster',col_qf:'QUARTERFINALS',col_sf:'SEMIFINALS',col_f:'GRAND FINAL',bracket_kick:'PLAYOFFS • 对阵',bracket_title:'',bracket_desc:'Group BO1 • Quarterfinal BO3 • Semifinal BO3 (first to 2) • Grand Final BO5.',info_kick:'STAY • 酒店',info_title:'',info_desc:'Where to stay and how to get to the arena.',info_venue:'Venue',info_transport:'Transport',info_transport_text:'High-speed train to Chongqing North, then metro + official shuttle to Zhongxian. Shuttle schedule in the team chat.',info_contact:'Contacts',info_contact_text:'Organizers: Cyber Loong crew. Team check-in at the arena reception, 2 hours before the match.',hotels_kick:'SLEEP • 住宿',hotels_title:'',rules_kick:'FAIR PLAY • 规则',rules_title:'',rules_desc:'Groups BO1, quarterfinals BO3, semifinals BO3 (first to 2 wins), grand final BO5. Violations = disqualification.',footer:'Made for CS2 fans',live:'LIVE',finished:'Finished',soon:'Upcoming',watchbtn:'Watch',empty_teams:'Teams will be announced soon.',empty_matches:'No matches yet.',player_empty:'Broadcast starts soon. Check the schedule.',yt_empty:'YouTube stream not added yet.',tw_empty:'Twitch channel not added yet.',conn_live:'connected to live data',conn_demo:'demo mode (no API)'},
+zh:{nav_overview:'首页',nav_bracket:'赛程',nav_info:'信息',nav_rules:'规则',hero_kicker:'第一赛季 • 重庆 • CS2',watch:'观看直播',cta_bracket:'对阵图',stat_teams:'战队',stat_prize:'总奖金',stat_n:'重庆',stat_where:'主办城市',scroll:'下滑',arena_kick:'场馆 • VENUE',arena_title:'',arena_cap1:'主舞台 • 6096个座位',arena_cap2:'职业级舞台',arena_cap3:'亚洲电竞氛围',prize_kick:'奖金 • MONEY',prize_title:'',place1:'🥇 冠军',place1_bonus:'+ 全队获赠全新耳机',place2:'🥈 亚军',place3:'🥉 季军',prize_desc:'以人民币（CNY）支付。',streams_kick:'直播 • LIVE',streams_title:'',tab_own:'本站直播',streams_desc:'本站播放器、YouTube 和 Twitch。',teams_kick:'战队 • LINEUP',teams_title:'',teams_n:'支战队',teams_hint:'点击卡片查看阵容',col_qf:'八强赛',col_sf:'半决赛',col_f:'总决赛',bracket_kick:'对阵 • PLAYOFFS',bracket_title:'',bracket_desc:'小组赛BO1 • 八强赛BO3 • 半决赛BO3（先胜两局）• 总决赛BO5。',info_kick:'酒店 • STAY',info_title:'',info_desc:'住宿与前往场馆的方式。',info_venue:'场馆',info_transport:'交通',info_transport_text:'高铁至重庆北站，然后乘坐地铁+官方班车前往忠县。班车时刻见战队群。',info_contact:'联系方式',info_contact_text:'主办方：Cyber Loong 团队。战队请于比赛前2小时在场馆前台签到。',hotels_kick:'住宿 • SLEEP',hotels_title:'',rules_kick:'规则 • FAIR PLAY',rules_title:'',rules_desc:'赛制：小组赛BO1，八强赛BO3，半决赛BO3（先胜两局），总决赛BO5。违规将被取消资格。',footer:'为CS2粉丝打造',live:'直播中',finished:'已结束',soon:'即将开始',watchbtn:'观看',empty_teams:'战队即将公布。',empty_matches:'暂无比赛。',player_empty:'直播即将开始，请查看赛程。',yt_empty:'尚未添加 YouTube 直播。',tw_empty:'尚未添加 Twitch 频道。',conn_live:'已连接实时数据',conn_demo:'演示模式（无API）'}};
+/* section titles live in HTML per language? Titles below are bilingual via separate spans */
+const SEC_TITLES = {
+  arena_title:{en:'THE ARENA',zh:'场馆'}, prize_title:{en:'PRIZE FUND',zh:'奖金'},
+  streams_title:{en:'BROADCAST',zh:'直播'}, teams_title:{en:'TEAMS',zh:'战队'},
+  bracket_title:{en:'BRACKET',zh:'对阵图'}, info_title:{en:'HOTELS & VENUE',zh:'酒店与场馆'},
+  hotels_title:{en:'PARTNER HOTELS',zh:'合作酒店'}, rules_title:{en:'RULES & BANS',zh:'规则与禁令'}};
+let LANG = localStorage.getItem('loong-lang') || 'en';
+function t(k){ return (T[LANG] && T[LANG][k] !== undefined && T[LANG][k] !== '' ? T[LANG][k] : T.en[k] || k); }
+function setLang(l){
+  LANG = l; localStorage.setItem('loong-lang', l);
+  document.documentElement.lang = (l === 'zh' ? 'zh-CN' : 'en');
+  document.getElementById('langLabel').textContent = (l === 'en' ? '中文' : 'EN');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (SEC_TITLES[k]) { el.textContent = SEC_TITLES[k][LANG] || SEC_TITLES[k].en; return; }
+    el.textContent = t(k);
+  });
+  renderAll();
+}
+document.getElementById('langBtn').onclick = () => setLang(LANG === 'en' ? 'zh' : 'en');
+
+function setTheme(th){ document.documentElement.dataset.theme = th; localStorage.setItem('loong-theme', th); }
+document.getElementById('themeBtn').onclick = () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+setTheme(localStorage.getItem('loong-theme') || 'dark');
+
+function goto(page){
+  document.querySelectorAll('[data-page]').forEach(x => x.classList.toggle('active', x.dataset.page === page));
+  document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.id === 'page-' + page));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+document.querySelectorAll('[data-page]').forEach(b => b.onclick = () => goto(b.dataset.page));
+document.querySelectorAll('[data-goto]').forEach(b => b.onclick = () => goto(b.dataset.goto));
+
+/* demo fallback: site works even as a plain file / without API */
+const DEMO_DATA = {"settings":{"name":"Cyber Loong Championship","city":"Chongqing, China","dates":"27 October - 1 November 2026","prize":"¥167,441.25 total","about":"International amateur CS2 tournament in Chongqing. Groups BO1, quarterfinals BO3, semifinals BO3 (first to 2), BO5 grand final.","venue":"Three Gorges Harbor Esports Stadium, Zhongxian, Chongqing","arena":"Three Gorges Harbor Esports Stadium: 114,000 m2, 6,096 seats, LED cube, 16 booths.","hotels":"Harbor View (Zhongxian) twin 380/night. Yangtze Riverside twin 320/night.","rules":"Groups BO1, QF BO3, SF BO3 (first to 2), GF BO5. Cheats = disqualification."},"teams":[{"id":"t-rdd","name":"Red Dragons","tag":"RDD","logo":"🐉","country":"China","flag":"🇨🇳","desc":"Hosts from Chongqing.","players":["LongWei","ChiYu","Fenrir","MeiLin","TaoTao"],"group":"A","w":1,"l":0},{"id":"t-sbf","name":"Siberian Foxes","tag":"SBF","logo":"🦊","country":"Russia","flag":"🇷🇺","desc":"Mix from Novosibirsk.","players":["Lis","Moroz","Kedr","Taiga","Buran"],"group":"A","w":0,"l":1},{"id":"t-jdt","name":"Jade Tigers","tag":"JDT","logo":"🐯","country":"China","flag":"🇨🇳","desc":"Squad from Chengdu.","players":["HuBen","LanYa","Stone","QiQi","Vey"],"group":"B","w":1,"l":0},{"id":"t-stw","name":"Steppe Wolves","tag":"STW","logo":"🐺","country":"Mongolia","flag":"🇲🇳","desc":"Underdogs from Ulaanbaatar.","players":["Temuulen","Bold","Khulan","Ochir","Sarnai"],"group":"B","w":0,"l":1},{"id":"t-ncr","name":"Neon Cranes","tag":"NCR","logo":"🏮","country":"China","flag":"🇨🇳","desc":"Team from Hangzhou.","players":["HeDan","YunQue","Pixel","Sora","Kim"],"group":"C","w":1,"l":0},{"id":"t-yzk","name":"Yangtze Kings","tag":"YZK","logo":"👑","country":"China","flag":"🇨🇳","desc":"Young roster from Wuhan.","players":["JiangWang","YuLong","SanXia","Feng","LeiTing"],"group":"C","w":0,"l":1},{"id":"t-ipd","name":"Iron Pandas","tag":"IPD","logo":"🐼","country":"China","flag":"🇨🇳","desc":"Iron defense.","players":["XiongMao","TieTou","Grizzly","BaoZi","Max"],"group":"D","w":1,"l":0},{"id":"t-hnr","name":"Han River","tag":"HNR","logo":"🌊","country":"South Korea","flag":"🇰🇷","desc":"Tacticians from Seoul.","players":["Jiho","Minjun","Seojun","Haruto","Donghyun"],"group":"D","w":0,"l":1}],"matches":[{"id":"m1","stage":"Group Stage","group":"A","a":"t-rdd","b":"t-sbf","slotA":"","slotB":"","bo":"BO1","scoreA":13,"scoreB":7,"date":"2026-10-27 14:00","status":"finished","stream":""},{"id":"m2","stage":"Group Stage","group":"B","a":"t-jdt","b":"t-stw","slotA":"","slotB":"","bo":"BO1","scoreA":13,"scoreB":10,"date":"2026-10-27 16:00","status":"finished","stream":""},{"id":"m3","stage":"Group Stage","group":"C","a":"t-ncr","b":"t-yzk","slotA":"","slotB":"","bo":"BO1","scoreA":13,"scoreB":5,"date":"2026-10-28 14:00","status":"finished","stream":""},{"id":"m4","stage":"Group Stage","group":"D","a":"t-ipd","b":"t-hnr","slotA":"","slotB":"","bo":"BO1","scoreA":13,"scoreB":11,"date":"2026-10-28 16:00","status":"finished","stream":""},{"id":"q1","stage":"Quarterfinal","group":"","a":"","b":"","slotA":"A1","slotB":"B2","bo":"BO3","scoreA":0,"scoreB":0,"date":"2026-10-30 14:00","status":"scheduled","stream":""},{"id":"q2","stage":"Quarterfinal","group":"","a":"","b":"","slotA":"B1","slotB":"A2","bo":"BO3","scoreA":0,"scoreB":0,"date":"2026-10-30 17:00","status":"scheduled","stream":""},{"id":"q3","stage":"Quarterfinal","group":"","a":"","b":"","slotA":"C1","slotB":"D2","bo":"BO3","scoreA":0,"scoreB":0,"date":"2026-10-30 20:00","status":"scheduled","stream":""},{"id":"q4","stage":"Quarterfinal","group":"","a":"","b":"","slotA":"D1","slotB":"C2","bo":"BO3","scoreA":0,"scoreB":0,"date":"2026-10-30 20:00","status":"scheduled","stream":""},{"id":"s1","stage":"Semifinal","group":"","a":"","b":"","slotA":"Winner QF1","slotB":"Winner QF2","bo":"BO3","scoreA":0,"scoreB":0,"date":"2026-10-31 17:00","status":"scheduled","stream":""},{"id":"s2","stage":"Semifinal","group":"","a":"","b":"","slotA":"Winner QF3","slotB":"Winner QF4","bo":"BO3","scoreA":0,"scoreB":0,"date":"2026-10-31 20:00","status":"scheduled","stream":""},{"id":"f1","stage":"Grand Final","group":"","a":"","b":"","slotA":"Winner SF1","slotB":"Winner SF2","bo":"BO5","scoreA":0,"scoreB":0,"date":"2026-11-01 19:00","status":"scheduled","stream":""}],"streams":{"own":{"title":"","url":"","embed":""},"youtube":{"url":""},"twitch":{"channel":""}}};
+let DATA = JSON.parse(JSON.stringify(DEMO_DATA));
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function setConn(live){
+  $('connDot').className = 'dot ' + (live ? 'live' : 'demo');
+  $('connText').textContent = live ? t('conn_live') : t('conn_demo');
+}
+async function load(){
+  try {
+    const ctl = new AbortController(); const to = setTimeout(() => ctl.abort(), 4500);
+    const r = await fetch(api('/api/public'), { signal: ctl.signal });
+    clearTimeout(to);
+    if (!r.ok) throw new Error('api');
+    DATA = await r.json(); setConn(true);
+  } catch(e){ DATA = JSON.parse(JSON.stringify(DEMO_DATA)); setConn(false); }
+  renderAll();
+}
+function teamById(id){ return (DATA.teams||[]).find(x => x.id===id) || {name:'TBD',tag:'',logo:'❓'}; }
+
+function renderAll(){
+  const s = DATA.settings || {};
+  $('tAbout').textContent = s.about || '';
+  $('tDates').textContent = s.dates || 'TBA';
+  $('tCity').textContent = s.city || 'Chongqing, China';
+  $('tPrize').textContent = s.prize || 'TBA';
+  $('venueLine').textContent = s.venue || '';
+  $('arenaText').textContent = s.arena || '';
+  $('hotelsText').textContent = s.hotels || '';
+  $('rulesText').textContent = s.rules || '';
+  $('infoVenue').textContent = s.venue || '';
+  $('stTeams').textContent = (DATA.teams || []).length || '–';
+  document.title = (s.name || 'Cyber Loong') + ' — Chongqing';
+  renderTeams(); renderMatches();
+  const active = document.querySelector('.stabs .stab.active');
+  renderStream(active ? active.dataset.s : 'own');
+  setConn($('connDot').className.indexOf('live') >= 0);
+}
+
+function renderTeams(){
+  const teams = DATA.teams || [];
+  $('teamsCount').textContent = teams.length ? (teams.length + ' ' + t('teams_n') + ' • ' + t('teams_hint')) : t('empty_teams');
+  $('teamGrid').innerHTML = teams.map(x => {
+    const logo = /^https?:\/\//.test(x.logo||'') ? '<img src="'+esc(x.logo)+'" alt="">' : esc(x.logo||'🐉');
+    return '<div class="team" id="team-'+x.id+'"><div class="tb" style="margin-top:0;padding-top:18px">'+
+    '<div class="t-head" style="display:flex;gap:12px;align-items:center;cursor:pointer" onclick="toggleTeam(\''+x.id+'\')"><div class="logo-big">'+logo+'</div>'+
+    '<div><b class="name" style="margin:0">'+esc(x.name)+'</b><div class="tag">'+esc(x.tag)+(x.group?' • '+esc(x.group):'')+'</div></div>'+
+    '<div class="wl" style="margin-left:auto;display:flex;gap:6px"><span class="wchip">'+(x.w||0)+'W</span><span class="lchip">'+(x.l||0)+'L</span>'+(x.group?'<span class="gchip">'+esc(x.group)+'</span>':'')+'</div>'+
+    '<i class="ri-arrow-down-s-line chev"></i></div>'+
+    '<div class="roster"><div class="country">'+esc(x.flag||'')+' '+esc(x.country||'')+'</div>'+
+    (x.desc?'<div class="tdesc">'+esc(x.desc)+'</div>':'')+
+    '<ul>'+((x.players||[]).map(p=>'<li><i class="ri-crosshair-line"></i>'+esc(p)+'</li>').join(''))+'</ul></div></div></div>';
+  }).join('');
+}
+function toggleTeam(id){ const el = $('team-'+id); if(el) el.classList.toggle('open'); }
+
+function badge(m){
+  if(m.status==='live') return '<span class="badge b-live">● '+t('live')+'</span>';
+  if(m.status==='finished') return '<span class="badge b-fin">'+t('finished')+'</span>';
+  return '<span class="badge b-sched">'+t('soon')+'</span>';
+}
+const BO_DEF = {'Group Stage':'BO1','Quarterfinal':'BO3','Semifinal':'BO3 · FT2','3rd Place Match':'BO1','Grand Final':'BO5','Групповой этап':'BO1','Полуфинал':'BO3','Финал':'BO5'};
+const STAGE_ORDER = ['Group Stage','Quarterfinal','Semifinal','3rd Place Match','Grand Final','Групповой этап','Полуфинал','Финал'];
+function boOf(m){ return m.bo || BO_DEF[m.stage] || ''; }
+function matchCard(m){
+  const A = teamById(m.a), B = teamById(m.b);
+  const aWin = m.status==='finished' && m.scoreA > m.scoreB;
+  const bWin = m.status==='finished' && m.scoreB > m.scoreA;
+  const logoA = /^https?:\/\//.test(A.logo||'') ? '<img src="'+esc(A.logo)+'" style="width:30px;height:30px;border-radius:8px;object-fit:cover" alt="">' : '<span class="m-logo">'+esc(A.logo||'❓')+'</span>';
+  const logoB = /^https?:\/\//.test(B.logo||'') ? '<img src="'+esc(B.logo)+'" style="width:30px;height:30px;border-radius:8px;object-fit:cover" alt="">' : '<span class="m-logo">'+esc(B.logo||'❓')+'</span>';
+  return '<div class="match '+(m.status==='live'?'live':'')+'">'+
+    '<div class="m-side">'+logoA+'<div class="m-name'+(aWin?' win':'')+'">'+esc(A.name)+'<small>'+esc(A.tag)+'</small></div></div>'+
+    '<div class="m-mid"><div class="m-score">'+m.scoreA+' : '+m.scoreB+'</div><div style="font-size:11px;color:var(--muted)">'+esc(m.stage)+(m.group?' • '+esc(m.group):'')+'</div></div>'+
+    '<div class="m-side right"><div class="m-name'+(bWin?' win':'')+'">'+esc(B.name)+'<small>'+esc(B.tag)+'</small></div>'+logoB+'</div>'+
+    '<div class="m-meta">'+badge(m)+'<span><i class="ri-time-line"></i> '+esc(m.date||'TBA')+'</span>'+
+    (m.stream?'<a class="watch" target="_blank" href="'+esc(m.stream)+'">📺 '+t('watchbtn')+'</a>':'')+'</div></div>';
+}
+function sideHTML(m, side){
+  const id = side === 'a' ? m.a : m.b;
+  const slot = side === 'a' ? (m.slotA || '') : (m.slotB || '');
+  if (id) {
+    const tm = teamById(id);
+    if (tm.name !== 'TBD') {
+      const logo = /^https?:\/\//.test(tm.logo||'') ? '<img src="'+esc(tm.logo)+'" alt="">' : esc(tm.logo||'❓');
+      return '<span class="blogo">'+logo+'</span><span class="bname">'+esc(tm.name)+'<small>'+esc(tm.tag)+'</small></span>';
+    }
+  }
+  return '<span class="bslot">'+esc(slot || 'TBD')+'</span><span class="bname"></span>';
+}
+function bracketCard(m, n){
+  const aWin = m.status === 'finished' && m.scoreA > m.scoreB;
+  const bWin = m.status === 'finished' && m.scoreB > m.scoreA;
+  return '<div class="bcard '+(m.status==='live'?'live':'')+'">'+
+    '<div class="brow'+(aWin?'winside':'')+'">'+sideHTML(m,'a')+'<span class="bscore">'+m.scoreA+'</span></div>'+
+    '<div class="brow'+(bWin?'winside':'')+'">'+sideHTML(m,'b')+'<span class="bscore">'+m.scoreB+'</span></div>'+
+    '<div class="bmeta">'+badge(m)+(boOf(m)?'<span class="bo">'+esc(boOf(m))+'</span>':'')+'<span><i class="ri-time-line"></i> '+esc(m.date||'TBA')+'</span>'+
+    (m.stream?'<a class="watch" target="_blank" href="'+esc(m.stream)+'">📺 '+t('watchbtn')+'</a>':'')+'</div></div>';
+}
+function renderMatches(){
+  const ms = DATA.matches || [];
+  const live = ms.filter(m=>m.status==='live');
+  $('liveBox').innerHTML = live.length ? '<div class="stage-head"><h3>🔥 '+t('live')+'</h3></div>'+live.map(matchCard).join('') : '';
+  const groups = ms.filter(m=>m.stage==='Group Stage' || m.stage==='Групповой этап');
+  let html = '';
+  if (groups.length) html += '<div class="stage-head"><h3>GROUP STAGE</h3><span class="bo">BO1</span></div>' + groups.map(matchCard).join('');
+  const qf = ms.filter(m=>m.stage==='Quarterfinal');
+  const sf = ms.filter(m=>m.stage==='Semifinal');
+  const fin = ms.filter(m=>['Grand Final','Final','Финал'].includes(m.stage));
+  const tp = ms.filter(m=>m.stage==='3rd Place Match');
+  if (qf.length || sf.length || fin.length || tp.length) {
+    html += '<div class="stage-head"><h3>'+t('bracket_title')+'</h3></div><div class="bcols">';
+    if (qf.length) html += '<div class="bcol"><div class="bcol-h">'+t('col_qf')+'</div>' + qf.map((m,i)=>'<div style="font-size:11px;color:var(--muted);letter-spacing:2px">QF'+(i+1)+'</div>'+bracketCard(m)).join('') + '</div>';
+    if (sf.length) html += '<div class="bcol"><div class="bcol-h">'+t('col_sf')+'</div>' + sf.map((m,i)=>'<div style="font-size:11px;color:var(--muted);letter-spacing:2px">SF'+(i+1)+'</div>'+bracketCard(m)).join('') + '</div>';
+    if (fin.length || tp.length) html += '<div class="bcol"><div class="bcol-h">'+t('col_f')+'</div>' + fin.map(bracketCard).join('') + tp.map(bracketCard).join('') + '</div>';
+    html += '</div>';
+  }
+  const rest = ms.filter(m=>!['Group Stage','Групповой этап','Quarterfinal','Semifinal','Grand Final','Final','Финал','3rd Place Match'].includes(m.stage) && m.status!=='live');
+  if (rest.length) html += rest.map(matchCard).join('');
+  $('matchList').innerHTML = html || ('<p class="desc">'+t('empty_matches')+'</p>');
+}
+
+function ytId(url){
+  if(!url) return '';
+  const m = String(url).match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([A-Za-z0-9_-]{6,})/);
+  return m ? m[1] : (/^[A-Za-z0-9_-]{6,}$/.test(url.trim()) ? url.trim() : '');
+}
+function renderStream(which){
+  document.querySelectorAll('.stabs .stab').forEach(b=>b.classList.toggle('active',b.dataset.s===which));
+  const p = $('player'), st = DATA.streams||{};
+  if(which==='own'){
+    const o = st.own||{};
+    if(o.embed && o.embed.indexOf('<iframe')>=0) p.innerHTML = o.embed;
+    else if(o.url) p.innerHTML = '<video controls playsinline src="'+esc(o.url)+'"></video>';
+    else p.innerHTML = '<div class="empty">🐉 '+esc(t('player_empty')).replace(/\n/g,'<br>')+'</div>';
+  } else if(which==='youtube'){
+    const id = ytId(st.youtube&&st.youtube.url);
+    p.innerHTML = id ? '<iframe src="https://www.youtube.com/embed/'+id+'" allowfullscreen allow="autoplay; encrypted-media"></iframe>'
+                     : '<div class="empty">▶ '+esc(t('yt_empty'))+'</div>';
+  } else {
+    const ch = st.twitch&&st.twitch.channel;
+    const host = (location.hostname || 'localhost');
+    p.innerHTML = ch ? '<iframe src="https://player.twitch.tv/?channel='+esc(ch)+'&parent='+host+'&muted=true" allowfullscreen></iframe>'
+                     : '<div class="empty">💜 '+esc(t('tw_empty'))+'</div>';
+  }
+}
+document.querySelectorAll('.stabs .stab').forEach(b=>b.onclick=()=>renderStream(b.dataset.s));
+
+/* embers */
+(function(){
+  const cv = $('embers'); if(!cv) return;
+  const ctx = cv.getContext('2d');
+  let W=0,H=0;
+  function size(){ const r=cv.parentElement.getBoundingClientRect(); W=cv.width=r.width; H=cv.height=r.height; }
+  addEventListener('resize',size); size();
+  const es = Array.from({length:45},()=>({x:Math.random(),y:Math.random(),s:1+Math.random()*2.4,v:.0004+Math.random()*.001,o:.25+Math.random()*.6}));
+  let T=0;
+  (function fr(){
+    T+=.016; ctx.clearRect(0,0,W,H);
+    for(const e of es){
+      e.y-=e.v; if(e.y<-.02){e.y=1.02;e.x=Math.random();}
+      ctx.globalAlpha=e.o*(.6+.4*Math.sin(T*3+e.x*20));
+      ctx.fillStyle='#e8a13c';
+      ctx.beginPath(); ctx.arc(e.x*W,e.y*H,e.s,0,7); ctx.fill();
+    }
+    ctx.globalAlpha=1;
+    requestAnimationFrame(fr);
+  })();
+})();
+
+setLang(LANG);
+load(); setInterval(load,15000);
+</script>
+</body>
+</html>

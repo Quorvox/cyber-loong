@@ -1,0 +1,42 @@
+{
+  "adminPasswordHash": null,
+  "settings": {
+    "name": "Cyber Loong Championship",
+    "city": "Chongqing, China",
+    "dates": "27 October – 1 November 2026",
+    "prize": "¥167,441.25 total",
+    "about": "An international amateur CS2 tournament in Chongqing, China. Group stage (BO1) plus single-elimination playoffs: quarterfinals BO3, semifinals BO3 (first to 2 wins), BO5 grand final on the big stage.",
+    "venue": "Three Gorges Harbor Esports Stadium, Zhongxian, Chongqing",
+    "arena": "Three Gorges Harbor Esports Stadium (三峡港湾电竞馆) in Zhongxian county, Chongqing — one of China's first professional esports arenas. Built in just 7 months, opened December 2017 with the CMEG Grand Finals.\n\n• 114,000 m² total floor area, 6,096 seats on three tiers\n• Octagonal LED cube above the stage + 360° ring screen around the stands\n• 16 soundproof match booths for players and casters\n• 1000 Mbit dedicated fiber + 1000 Mbit backup line for global broadcast\n• Hosted CMEG Grand Finals, CMEL Finals and international festivals",
+    "hotels": "Official partner hotels (book with promo code LOONG2026, -15%):\n\n1. Harbor View Hotel (Zhongxian, 10 min from arena)\n   Standard twin — ¥380/night • Single — ¥420/night • Tel: +86 23 0000 0000\n\n2. Yangtze Riverside Hotel (Zhongxian, 15 min from arena)\n   Standard twin — ¥320/night • Suite — ¥560/night • Tel: +86 23 0000 0000\n\n3. Jiefangbei Central Hotel (downtown Chongqing, metro + shuttle)\n   Standard twin — ¥450/night • Single — ¥490/night • Tel: +86 23 0000 0000\n\nCheck-in with team manager. Edit this list in Admin → Settings.",
+    "rules": "FORMAT\n• Group stage: round robin, BO1, MR12. Winners and runners-up advance: A1 vs B2, B1 vs A2, C1 vs D2, D1 vs C2.\n• Quarterfinals: BO3. Semifinals: BO3, first to 2 wins. Grand final: BO5. 3rd place match: BO1.\n• Map pool: current competitive pool at tournament date. Veto BO1: ban-ban-ban-ban-pick-pick, decider remains. Veto BO3: ban-ban-pick-pick-ban-ban, decider remains. Veto BO5: ban-ban-pick-pick-pick-pick, decider remains.\n\nROSTER\n• 5 starters + up to 2 substitutes, registered before the start. No roster changes mid-tournament.\n• Accounts must be VAC-clean. Smurf accounts are forbidden.\n\nCONDUCT & BANS\n• Cheats, scripts, bug abuse — instant disqualification.\n• Insults, hate speech, match-fixing — disqualification + ban from next season.\n• No-show longer than 15 minutes — technical defeat (13:0).\n• Max 4 tactical pauses per map + technical pauses for crashes (round replay by referee decision).\n\nSCHEDULE\n• Tournament starts 27 October 2026. Group matches must be played within the announced window. Playoff reschedules only by mutual consent + referee approval."
+  },
+  "teams": [
+    { "id": "t-rdd", "name": "Red Dragons", "tag": "RDD", "logo": "🐉", "country": "China", "flag": "🇨🇳", "desc": "Hosts from Chongqing. Aggressive riflers, favorites of the home crowd.", "players": ["LongWei", "ChiYu", "Fenrir", "MeiLin", "TaoTao"], "group": "A", "w": 1, "l": 0 },
+    { "id": "t-sbf", "name": "Siberian Foxes", "tag": "SBF", "logo": "🦊", "country": "Russia", "flag": "🇷🇺", "desc": "Cunning mix from Novosibirsk. Masters of comebacks from 0:8 down.", "players": ["Lis", "Moroz", "Kedr", "Taiga", "Buran"], "group": "A", "w": 0, "l": 1 },
+    { "id": "t-jdt", "name": "Jade Tigers", "tag": "JDT", "logo": "🐯", "country": "China", "flag": "🇨🇳", "desc": "Disciplined squad from Chengdu, famous for flawless executes on Mirage.", "players": ["HuBen", "LanYa", "Stone", "QiQi", "Vey"], "group": "B", "w": 1, "l": 0 },
+    { "id": "t-stw", "name": "Steppe Wolves", "tag": "STW", "logo": "🐺", "country": "Mongolia", "flag": "🇲🇳", "desc": "Aim-heavy underdogs from Ulaanbaatar. Never lost a pistol round this season.", "players": ["Temuulen", "Bold", "Khulan", "Ochir", "Sarnai"], "group": "B", "w": 0, "l": 1 },
+    { "id": "t-ncr", "name": "Neon Cranes", "tag": "NCR", "logo": "🏮", "country": "China", "flag": "🇨🇳", "desc": "Stylish team from Hangzhou. Best Nuke winrate in the qualifiers.", "players": ["HeDan", "YunQue", "Pixel", "Sora", "Kim"], "group": "C", "w": 1, "l": 0 },
+    { "id": "t-yzk", "name": "Yangtze Kings", "tag": "YZK", "logo": "👑", "country": "China", "flag": "🇨🇳", "desc": "Young roster from Wuhan with the highest headshot percentage.", "players": ["JiangWang", "YuLong", "SanXia", "Feng", "LeiTing"], "group": "C", "w": 0, "l": 1 },
+    { "id": "t-ipd", "name": "Iron Pandas", "tag": "IPD", "logo": "🐼", "country": "China", "flag": "🇨🇳", "desc": "Slow and unstoppable. Iron defense, second-best overtime record.", "players": ["XiongMao", "TieTou", "Grizzly", "BaoZi", "Max"], "group": "D", "w": 1, "l": 0 },
+    { "id": "t-hnr", "name": "Han River", "tag": "HNR", "logo": "🌊", "country": "South Korea", "flag": "🇰🇷", "desc": "Tactical masterminds from Seoul. Their coach wrote the book on Anubis.", "players": ["Jiho", "Minjun", "Seojun", "Haruto", "Donghyun"], "group": "D", "w": 0, "l": 1 }
+  ],
+  "matches": [
+    { "id": "m1", "stage": "Group Stage", "group": "A", "a": "t-rdd", "b": "t-sbf", "slotA": "", "slotB": "", "bo": "BO1", "scoreA": 13, "scoreB": 7, "date": "2026-10-27 14:00", "status": "finished", "stream": "" },
+    { "id": "m2", "stage": "Group Stage", "group": "B", "a": "t-jdt", "b": "t-stw", "slotA": "", "slotB": "", "bo": "BO1", "scoreA": 13, "scoreB": 10, "date": "2026-10-27 16:00", "status": "finished", "stream": "" },
+    { "id": "m3", "stage": "Group Stage", "group": "C", "a": "t-ncr", "b": "t-yzk", "slotA": "", "slotB": "", "bo": "BO1", "scoreA": 13, "scoreB": 5, "date": "2026-10-28 14:00", "status": "finished", "stream": "" },
+    { "id": "m4", "stage": "Group Stage", "group": "D", "a": "t-ipd", "b": "t-hnr", "slotA": "", "slotB": "", "bo": "BO1", "scoreA": 13, "scoreB": 11, "date": "2026-10-28 16:00", "status": "finished", "stream": "" },
+    { "id": "q1", "stage": "Quarterfinal", "group": "", "a": "", "b": "", "slotA": "A1", "slotB": "B2", "bo": "BO3", "scoreA": 0, "scoreB": 0, "date": "2026-10-30 14:00", "status": "scheduled", "stream": "" },
+    { "id": "q2", "stage": "Quarterfinal", "group": "", "a": "", "b": "", "slotA": "B1", "slotB": "A2", "bo": "BO3", "scoreA": 0, "scoreB": 0, "date": "2026-10-30 17:00", "status": "scheduled", "stream": "" },
+    { "id": "q3", "stage": "Quarterfinal", "group": "", "a": "", "b": "", "slotA": "C1", "slotB": "D2", "bo": "BO3", "scoreA": 0, "scoreB": 0, "date": "2026-10-30 20:00", "status": "scheduled", "stream": "" },
+    { "id": "q4", "stage": "Quarterfinal", "group": "", "a": "", "b": "", "slotA": "D1", "slotB": "C2", "bo": "BO3", "scoreA": 0, "scoreB": 0, "date": "2026-10-30 20:00", "status": "scheduled", "stream": "" },
+    { "id": "s1", "stage": "Semifinal", "group": "", "a": "", "b": "", "slotA": "Winner QF1", "slotB": "Winner QF2", "bo": "BO3", "scoreA": 0, "scoreB": 0, "date": "2026-10-31 17:00", "status": "scheduled", "stream": "" },
+    { "id": "s2", "stage": "Semifinal", "group": "", "a": "", "b": "", "slotA": "Winner QF3", "slotB": "Winner QF4", "bo": "BO3", "scoreA": 0, "scoreB": 0, "date": "2026-10-31 20:00", "status": "scheduled", "stream": "" },
+    { "id": "f1", "stage": "Grand Final", "group": "", "a": "", "b": "", "slotA": "Winner SF1", "slotB": "Winner SF2", "bo": "BO5", "scoreA": 0, "scoreB": 0, "date": "2026-11-01 19:00", "status": "scheduled", "stream": "" }
+  ],
+  "streams": {
+    "own": { "title": "Main broadcast", "url": "", "embed": "" },
+    "youtube": { "url": "" },
+    "twitch": { "channel": "" }
+  }
+}

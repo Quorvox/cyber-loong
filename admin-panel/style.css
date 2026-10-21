@@ -1,0 +1,108 @@
+:root{
+  --bg:#0a0605; --panel:#17100b; --panel2:#1f140d;
+  --red:#c0272d; --red2:#ff4b3e; --gold:#e8b64c; --gold2:#f7df9a;
+  --text:#f3e9d8; --muted:#b9a488; --line:#3a2417;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;overflow-x:hidden}
+a{color:var(--gold)}
+/* фон: тонкий узор чешуи */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background:
+    radial-gradient(900px 500px at 15% -5%,rgba(192,39,45,.22),transparent 60%),
+    radial-gradient(800px 500px at 90% 20%,rgba(232,182,76,.10),transparent 60%),
+    radial-gradient(700px 600px at 50% 110%,rgba(192,39,45,.14),transparent 60%);}
+.wrap{max-width:1060px;margin:0 auto;padding:0 16px;position:relative;z-index:1}
+/* шапка */
+header{position:sticky;top:0;z-index:20;background:rgba(10,6,5,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:14px;padding:12px 0}
+.logo{font-weight:800;font-size:19px;letter-spacing:.5px}
+.logo b{color:var(--red2)} .logo span{color:var(--gold)}
+.nav nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+.nav nav a{color:var(--text);text-decoration:none;font-size:14px;padding:8px 12px;border-radius:10px}
+.nav nav a:hover{background:#241610}
+.admin-link{border:1px solid var(--line);color:var(--gold)!important}
+/* hero */
+.hero{position:relative;min-height:78vh;display:flex;align-items:center;overflow:hidden;
+  border-bottom:1px solid var(--line)}
+#dragon{position:absolute;inset:0;width:100%;height:100%}
+.hero-inner{position:relative;z-index:2;padding:70px 0}
+.kicker{color:var(--gold);letter-spacing:3px;font-size:13px;text-transform:uppercase}
+h1{font-size:clamp(38px,7vw,72px);margin:10px 0;line-height:1.02}
+h1 .cn{display:block;font-size:.55em;color:var(--red2);letter-spacing:8px}
+.sub{color:var(--muted);font-size:17px;max-width:560px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.pill{background:rgba(0,0,0,.5);border:1px solid var(--gold);color:var(--gold2);
+  border-radius:99px;padding:8px 16px;font-size:14px}
+.btn{display:inline-block;background:linear-gradient(180deg,var(--red2),var(--red));
+  color:#fff;border:0;border-radius:13px;padding:14px 26px;font-size:16px;font-weight:700;
+  cursor:pointer;text-decoration:none;box-shadow:0 8px 26px rgba(255,75,62,.35)}
+.btn.ghost{background:transparent;border:1px solid var(--gold);color:var(--gold);box-shadow:none}
+section{padding:52px 0}
+h2{font-size:30px;margin:0 0 6px} h2 .cn{color:var(--red2);font-size:.7em;margin-left:8px}
+.desc{color:var(--muted);margin:0 0 22px}
+/* карточки команд */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.team{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);
+  border-radius:18px;padding:18px;transition:transform .15s,border-color .2s}
+.team:hover{transform:translateY(-3px);border-color:var(--gold)}
+.team .t-head{display:flex;gap:12px;align-items:center}
+.team .logo-big{font-size:40px;width:60px;height:60px;display:flex;align-items:center;justify-content:center;
+  background:#0d0806;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.team .logo-big img{width:100%;height:100%;object-fit:cover}
+.team b{font-size:18px} .team .tag{color:var(--gold);font-size:13px}
+.team .wl{margin-left:auto;text-align:right;font-size:13px;color:var(--muted)}
+.team .wl b{color:#7ddf8e;font-size:16px}
+.team ul{margin:10px 0 0;padding:0;list-style:none;font-size:13px;color:var(--muted)}
+.team ul li{padding:2px 0;border-top:1px dashed #2c1c11}
+/* матчи */
+.match{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);
+  border-radius:16px;padding:14px 16px;margin:10px 0}
+.match.live{border-color:var(--red2);box-shadow:0 0 24px rgba(255,75,62,.25)}
+.m-stage{font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px}
+.m-row{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:17px}
+.m-team{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m-team.right{text-align:right}
+.m-score{font-size:24px;font-weight:800;color:var(--gold2);background:#0d0806;border:1px solid var(--line);
+  border-radius:10px;padding:2px 14px;white-space:nowrap}
+.m-sub{display:flex;gap:10px;align-items:center;margin-top:8px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.badge{font-size:12px;padding:3px 10px;border-radius:99px;font-weight:700}
+.b-live{background:rgba(255,75,62,.18);color:#ff7b6e;border:1px solid var(--red2);animation:pulse 1.6s infinite}
+.b-fin{background:rgba(125,223,142,.12);color:#7ddf8e;border:1px solid #2c5a37}
+.b-sched{background:rgba(232,182,76,.12);color:var(--gold);border:1px solid #6b5322}
+@keyframes pulse{50%{opacity:.55}}
+.watch{color:var(--gold);font-size:13px}
+/* стримы */
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.tab{background:#201410;border:1px solid var(--line);color:var(--text);border-radius:12px;padding:10px 18px;cursor:pointer;font-size:14px}
+.tab.active{background:linear-gradient(180deg,var(--red2),var(--red));color:#fff;border-color:transparent}
+.player{background:#000;border:1px solid var(--line);border-radius:16px;overflow:hidden;aspect-ratio:16/9;position:relative}
+.player iframe,.player video{width:100%;height:100%;border:0}
+.player .empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:20px}
+/* футер */
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px;text-align:center}
+/* фонарики */
+.lantern{position:absolute;bottom:-70px;border-radius:50% 50% 46% 46%;opacity:.8;
+  background:radial-gradient(circle at 50% 35%,#ffd98a,#ff7b3e 55%,#c0272d 100%);
+  box-shadow:0 0 30px 6px rgba(255,120,60,.45);animation:rise linear infinite}
+.lantern::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:26px;background:#7a4a22;transform:translateX(-50%)}
+@keyframes rise{to{transform:translateY(-110vh)}}
+/* админка */
+.login-card{max-width:380px;margin:60px auto;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px}
+input,select,textarea{width:100%;background:#0d0806;border:1px solid var(--line);color:var(--text);
+  border-radius:12px;padding:11px 12px;margin:6px 0;font-size:14px;font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+label{font-size:13px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td,th{border-bottom:1px solid #2c1c11;padding:8px 6px;text-align:left;vertical-align:top}
+button{border:0;border-radius:11px;padding:9px 14px;font-size:13px;font-weight:700;cursor:pointer}
+.b-add{background:linear-gradient(180deg,var(--red2),var(--red));color:#fff}
+.b-edit{background:#2a1c10;color:var(--gold);border:1px solid var(--line)}
+.b-del{background:transparent;color:#ff7b6e;border:1px solid #5a2320}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.form-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0}
+.hidden{display:none!important}
+@media(max-width:640px){.row2,.row3{grid-template-columns:1fr}.m-score{font-size:19px}}
